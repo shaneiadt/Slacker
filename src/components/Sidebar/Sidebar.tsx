@@ -27,15 +27,16 @@ function Sidebar() {
         <CreateIcon />
       </SidebarHeader>
 
-      <Option Icon={InsertCommentIcon} title="Threads"/>
-      <Option Icon={InboxIcon} title="Mentions & Reactions"/>
-      <Option Icon={DraftsIcon} title="Saved Items"/>
-      <Option Icon={BookmarkBorderIcon} title="Channel Browser"/>
-      <Option Icon={PeopleAltIcon} title="People & User Groups"/>
-      <Option Icon={AppsIcon} title="Apps"/>
-      <Option Icon={FileCopyIcon} title="File Browser"/>
-      <Option Icon={ExpandLessIcon} title="Show Less"/>
-      
+      <Option Icon={InsertCommentIcon} title="Threads" />
+      <Option Icon={InboxIcon} title="Mentions & Reactions" />
+      <Option Icon={DraftsIcon} title="Saved Items" />
+      <Option Icon={BookmarkBorderIcon} title="Channel Browser" />
+      <Option Icon={PeopleAltIcon} title="People & User Groups" />
+      <Option Icon={AppsIcon} title="Apps" />
+      <Option Icon={FileCopyIcon} title="File Browser" />
+      <Option Icon={ExpandLessIcon} title="Show Less" />
+      <Option title="Nothing" />
+
     </SidebarContainer>
   )
 }

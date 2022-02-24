@@ -4,15 +4,23 @@ import React from 'react'
 import styled from 'styled-components';
 
 interface IOptionProps {
-    Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
     title: string;
 }
 
 const Option: React.FC<IOptionProps> = ({ Icon, title }) => {
     return (
         <OptionContainer>
-            <Icon />
-            {title}
+            {Icon ? (
+                <>
+                    <Icon fontSize='small' style={{ padding: 10 }} />
+                    {title}
+                </>
+            ) : (
+                <OptionChannel>
+                    <span>#</span> {title}
+                </OptionChannel>
+            )}
         </OptionContainer>
     )
 }
@@ -20,5 +28,9 @@ const Option: React.FC<IOptionProps> = ({ Icon, title }) => {
 export default Option;
 
 const OptionContainer = styled.div`
+
+`;
+
+const OptionChannel = styled.div`
 
 `;
