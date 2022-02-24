@@ -1,15 +1,17 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import Header from '../Header/Header';
 
 import './App.css';
 
-const HomePage = () => <h1>This is the home page</h1>
-
 function App() {
   return (
-    <Routes>
+    <>
+    <Header />
+    {/* <Routes>
       <Route path="/" element={<HomePage />} />
-    </Routes>
+    </Routes> */}
+    </>
   );
 }
 
