@@ -7,10 +7,9 @@ import './App.css';
 function App() {
   return (
     <>
-    <Header />
-    {/* <Routes>
-      <Route path="/" element={<HomePage />} />
-    </Routes> */}
+    <Routes>
+      <Route path="/" element={<Header />} />
+    </Routes>
     </>
   );
 }
