@@ -28,7 +28,16 @@ const Option: React.FC<IOptionProps> = ({ Icon, title }) => {
 export default Option;
 
 const OptionContainer = styled.div`
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    padding-left: 2px;
+    cursor: pointer;
 
+    :hover {
+        opacity: 0.9;
+        background-color: #340e36;
+    }
 `;
 
 const OptionChannel = styled.div`
