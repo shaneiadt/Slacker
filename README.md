@@ -7,5 +7,5 @@ Slack 3.0 :smile:
 - TypeScript
 - Redux
 - Firebase + Hooks
-- Matrial UI
+- Material UI
 - Styled Components
