@@ -44,23 +44,23 @@ function Sidebar() {
 export default Sidebar;
 
 const SidebarContainer = styled.div`
-  color: #fff;
-  background-color: var(--slack-color);
+  color: var(--slack-color-white);
+  background-color: var(--slack-color-primary);
   flex: 0.3;
-  border-top: 1px solid #49274b;
+  border-top: 1px solid var(--slack-color-background);
   max-width: 260px;
   margin-top: 60px;
 `;
 
 const SidebarHeader = styled.div`
   display: flex;
-  border-bottom: 1px solid #49274b;
+  border-bottom: 1px solid var(--slack-color-background);
   padding: 13px;
 
   > .MuiSvgIcon-root {
     padding:8px;
-    background-color: #fff;
-    color: #49274b;
+    background-color: var(--slack-color-white);
+    color: var(--slack-color-background);
     font-size:18px;
     border-radius: 999px;
 

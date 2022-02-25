@@ -36,7 +36,15 @@ const OptionContainer = styled.div`
 
     :hover {
         opacity: 0.9;
-        background-color: #340e36;
+        background-color: var(--slack-color-secondary);
+    }
+
+    > h3 {
+        font-weight: 500px;
+
+        span {
+            
+        }
     }
 `;
 

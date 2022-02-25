@@ -34,8 +34,8 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  background-color: var(--slack-color);
-  color: #fff;
+  background-color: var(--slack-color-primary);
+  color: var(--slack-color-white);
 `;
 
 const HeaderLeft = styled.div`
@@ -62,7 +62,7 @@ const HeaderSearch = styled.div`
   flex: 0.4;
   opacity: 1;
   border-radius: 6px;
-  background-color: #421f44;
+  background-color: var(--slack-color-tertiary);
   text-align: center;
   display: flex;
   padding: 0 50px;
@@ -75,7 +75,7 @@ const HeaderSearch = styled.div`
     text-align: center;
     min-width: 30vw;
     outline: 0;
-    color: #fff;
+    color: var(--slack-color-white);
   }
 `;
 
