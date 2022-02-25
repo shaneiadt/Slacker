@@ -6,6 +6,6 @@ Slack 3.0 :smile:
 - React Router
 - TypeScript
 - Redux
-- Firebase Hooks
+- Firebase + Hooks
 - Matrial UI
 - Styled Components
