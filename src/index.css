@@ -8,6 +8,7 @@ body {
   --slack-color-tertiary: #421f44;
   --slack-color-background: #49274b;
   --slack-color-white: #fff;
+  --slack-color-online: #008000;
   overflow: hidden;
 
   margin: 0;

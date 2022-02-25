@@ -85,7 +85,7 @@ const SidebarInfo = styled.div`
 
   > h3 > .MuiSvgIcon-root {
     font-size: 14px;
-    color: green;
+    color: var(--slack-color-online);
     margin-right: 2px;
     margin-top: 1px;
   }
