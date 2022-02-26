@@ -8,6 +8,7 @@ import { db } from '../../../firebase';
 interface IOptionProps {
     title: string;
     Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    id?: string;
     addChannelOption?: boolean;
 }
 
