@@ -1,7 +1,9 @@
 import { SvgIconTypeMap } from '@material-ui/core';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+import { setDoc, doc } from 'firebase/firestore';
 import React from 'react'
 import styled from 'styled-components';
+import { db } from '../../../firebase';
 
 interface IOptionProps {
     title: string;
@@ -10,7 +12,15 @@ interface IOptionProps {
 }
 
 const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false }) => {
-    const addChannel = () => { }
+    const addChannel = async () => {
+        const name = prompt('Please enter the channel name');
+
+        if (name) {
+            await setDoc(doc(db, "rooms", name), {
+                name
+            });
+        }
+    }
 
     const selectChannel = () => { }
 
