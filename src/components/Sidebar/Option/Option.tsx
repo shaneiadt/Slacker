@@ -4,13 +4,20 @@ import React from 'react'
 import styled from 'styled-components';
 
 interface IOptionProps {
-    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
     title: string;
+    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    addChannelOption?: boolean;
 }
 
-const Option: React.FC<IOptionProps> = ({ Icon, title }) => {
+const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false }) => {
+    const addChannel = () => { }
+
+    const selectChannel = () => { }
+
     return (
-        <OptionContainer>
+        <OptionContainer
+            onClick={addChannelOption ? addChannel : selectChannel}
+        >
             {Icon ? (
                 <>
                     <Icon fontSize='small' style={{ padding: 10 }} />
@@ -40,11 +47,13 @@ const OptionContainer = styled.div`
     }
 
     > h3 {
-        font-weight: 500px;
+        font-weight: 500;
 
-        span {
-            
-        }
+    }
+    
+    > h3 > span {
+        padding: 15px;
+        
     }
 `;
 
