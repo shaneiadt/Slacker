@@ -1,6 +1,6 @@
 import { SvgIconTypeMap } from '@material-ui/core';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, collection } from 'firebase/firestore';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -22,7 +22,7 @@ const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false,
         const name = prompt('Please enter the channel name');
 
         if (name) {
-            await setDoc(doc(db, "rooms", name), {
+            await setDoc(doc(collection(db, "rooms")), {
                 name
             });
         }
