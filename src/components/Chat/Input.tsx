@@ -5,15 +5,15 @@ import styled from 'styled-components';
 export const Input: React.FC<{ channelId: string | null }> = () => {
     const sendMessage = (e: React.FormEvent) => {
         e.preventDefault();
+
+        console.log('SEND');
     }
 
     return (
         <InputContainer>
             <form>
                 <input placeholder={`Message #ROOM`} type="text" />
-                <Button hidden type='submit' onClick={sendMessage}>
-                    SEND
-                </Button>
+                <Button hidden type='submit' onClick={sendMessage} />
             </form>
         </InputContainer>
     )
