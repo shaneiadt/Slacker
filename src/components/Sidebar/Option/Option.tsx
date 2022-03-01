@@ -2,7 +2,9 @@ import { SvgIconTypeMap } from '@material-ui/core';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { setDoc, doc } from 'firebase/firestore';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { enterRoom } from '../../../features/appSlice';
 
 import { db } from '../../../firebase';
 
@@ -13,7 +15,9 @@ interface IOptionProps {
     addChannelOption?: boolean;
 }
 
-const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false }) => {
+const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false, id }) => {
+    const dispatch = useDispatch();
+
     const addChannel = async () => {
         const name = prompt('Please enter the channel name');
 
@@ -24,7 +28,11 @@ const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false 
         }
     }
 
-    const selectChannel = () => { }
+    const selectChannel = () => {
+        if (id) {
+            dispatch(enterRoom({ roomId: id }));
+        }
+    }
 
     return (
         <OptionContainer
