@@ -3,6 +3,7 @@ import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { setDoc, doc } from 'firebase/firestore';
 import React from 'react'
 import styled from 'styled-components';
+
 import { db } from '../../../firebase';
 
 interface IOptionProps {
@@ -68,6 +69,7 @@ const OptionContainer = styled.div`
     }
 `;
 
-const OptionChannel = styled.div`
-
+const OptionChannel = styled.h3`
+    padding: 10px 0;
+    font-weight: 300;
 `;
