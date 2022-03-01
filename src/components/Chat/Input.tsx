@@ -1,18 +1,33 @@
 import { Button } from '@material-ui/core';
-import React from 'react'
+import { addDoc, collection, doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import { db } from '../../firebase';
 
-export const Input: React.FC<{ channelId: string | null }> = () => {
-    const sendMessage = (e: React.FormEvent) => {
+export const Input: React.FC<{ channelId: string | null }> = ({ channelId }) => {
+    const [input, setInput] = useState('');
+
+    const sendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        console.log('SEND');
+        if (!channelId) return;
+
+        const docref = doc(collection(db, 'rooms'));
+        const colref = doc(docref, 'messages', channelId);
+        await setDoc(colref, {
+            message: input,
+            timestamp: serverTimestamp(),
+            user: 'ShaneO',
+            avatar: 'https://pbs.twimg.com/profile_images/1051123635950379009/d6yiQUwf_400x400.jpg'
+        });
+
+        setInput('');
     }
 
     return (
         <InputContainer>
             <form>
-                <input placeholder={`Message #ROOM`} type="text" />
+                <input value={input} onChange={e => setInput(e.target.value)} placeholder={`Message #ROOM`} type="text" />
                 <Button hidden type='submit' onClick={sendMessage} />
             </form>
         </InputContainer>

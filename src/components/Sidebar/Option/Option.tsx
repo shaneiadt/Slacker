@@ -1,6 +1,6 @@
 import { SvgIconTypeMap } from '@material-ui/core';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { setDoc, doc, collection } from 'firebase/firestore';
+import { setDoc, doc, collection, addDoc } from 'firebase/firestore';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';

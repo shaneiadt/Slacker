@@ -5,11 +5,15 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { Input } from './Input';
 import { useSelector } from 'react-redux';
 import { selectRoomId } from '../../features/appSlice';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
+import { app } from '../../firebase';
 
 interface IChatProps { }
 
 const Chat: React.FC<IChatProps> = () => {
   const roomId = useSelector(selectRoomId);
+  const [roomDetails] = useCollection(collection(getFirestore(app), `rooms/${roomId}`));
 
   return (
     <ChatContainer>
