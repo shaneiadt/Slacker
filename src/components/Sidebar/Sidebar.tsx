@@ -51,7 +51,6 @@ const Sidebar = () => {
         <Option
           key={doc.id}
           id={doc.id}
-          addChannelOption
           title={doc.data().name}
         />
       ))}
