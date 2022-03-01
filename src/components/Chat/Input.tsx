@@ -38,4 +38,8 @@ const InputContainer = styled.div`
         padding: 20px;
         outline: none;
     }
+
+    > form > button {
+        display: none !important;
+    }
 `;
