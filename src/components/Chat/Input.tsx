@@ -1,9 +1,10 @@
 import { Button } from '@material-ui/core';
 import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore';
 import React, { useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 
-import { db } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 interface IInputProps {
     room: {
@@ -14,6 +15,7 @@ interface IInputProps {
 
 export const Input: React.FC<IInputProps> = ({ room: { roomId, roomName } }) => {
     const [input, setInput] = useState('');
+    const [user] = useAuthState(auth);
 
     const sendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -25,8 +27,8 @@ export const Input: React.FC<IInputProps> = ({ room: { roomId, roomName } }) => 
         await addDoc(colref, {
             message: input,
             timestamp: serverTimestamp(),
-            user: 'ShaneO',
-            avatar: 'https://pbs.twimg.com/profile_images/1051123635950379009/d6yiQUwf_400x400.jpg'
+            user: user?.displayName,
+            avatar: user?.photoURL
         });
 
         setInput('');

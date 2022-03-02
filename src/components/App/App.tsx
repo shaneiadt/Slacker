@@ -11,9 +11,9 @@ import { auth } from '../../firebase';
 import './App.css';
 
 function App() {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
-  if(!user) return <Login />;
+  if (!user) return <Login />;
 
   return (
     <>
