@@ -12,11 +12,10 @@ const Messages: React.FC<{ roomId: string }> = ({ roomId }) => {
         <div>
             {messages?.docs.map(message => (
                 <>
-                    <p>{message.id}</p>
-                    <p>{JSON.stringify(message.data())}</p>
+                    <p>{message.data().message}</p>
                 </>
             ))}
-        </div> 
+        </div>
     )
 }
 

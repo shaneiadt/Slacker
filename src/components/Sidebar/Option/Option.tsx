@@ -30,7 +30,7 @@ const Option: React.FC<IOptionProps> = ({ Icon, title, addChannelOption = false,
 
     const selectChannel = () => {
         if (id) {
-            dispatch(enterRoom({ roomId: id }));
+            dispatch(enterRoom({ roomId: id, roomName: title }));
         }
     }
 

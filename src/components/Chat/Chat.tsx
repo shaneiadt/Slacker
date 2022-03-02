@@ -4,18 +4,18 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { Input } from './Input';
 import { useSelector } from 'react-redux';
-import { selectRoomId } from '../../features/appSlice';
+import { selectRoom } from '../../features/appSlice';
 import Messages from './Messages';
 
 const Chat: React.FC = () => {
-  const roomId = useSelector(selectRoomId);
+  const room = useSelector(selectRoom);
 
-  return !roomId ? null : (
+  return !room.roomId ? null : (
     <ChatContainer>
       <>
         <Header>
           <HeaderLeft>
-            <h4><strong>#Room-name</strong></h4>
+            <h4><strong>#{room.roomName}</strong></h4>
             <StarBorderOutlinedIcon />
           </HeaderLeft>
 
@@ -26,10 +26,10 @@ const Chat: React.FC = () => {
           </HeaderRight>
         </Header>
 
-        <Messages roomId={roomId} />
+        <Messages roomId={room.roomId} />
 
         <Input
-          channelId={roomId}
+          channelId={room.roomId}
         />
       </>
     </ChatContainer>
