@@ -1,17 +1,22 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { signInWithPopup } from 'firebase/auth';
+
+import { auth, provider } from '../../firebase';
 
 export const Login = () => {
     const signIn = (e: React.FormEvent) => {
         e.preventDefault();
+
+        signInWithPopup(auth, provider).catch(e => alert(e.message));
     }
 
     return (
         <LoginContainer>
             <LoginInnerContainer>
                 <img src='https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg' />
-                <h1>Sign in to Slacker</h1>
+                <h2>Sign in to Slacker</h2>
                 <Button type='submit' onClick={signIn}>
                     Sign in with Google
                 </Button>
