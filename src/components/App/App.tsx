@@ -9,10 +9,12 @@ import Sidebar from '../Sidebar/Sidebar';
 import { Login } from '../Login/Login';
 import { auth } from '../../firebase';
 import './App.css';
+import Loading from '../Loading/Loading';
 
 function App() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
+  if (loading) return <Loading />;
   if (!user) return <Login />;
 
   return (
