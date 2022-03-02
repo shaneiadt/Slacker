@@ -4,15 +4,15 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { db } from '../../firebase';
 
-export const Input: React.FC<{ channelId: string | null }> = ({ channelId }) => {
+export const Input: React.FC<{ room: { roomId: string | null; roomName: string | null } }> = ({ room: { roomId, roomName } }) => {
     const [input, setInput] = useState('');
 
     const sendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!channelId) return;
+        if (!roomId) return;
 
-        const docref = doc(db, 'rooms', channelId);
+        const docref = doc(db, 'rooms', roomId);
         const colref = collection(docref, 'messages');
         await addDoc(colref, {
             message: input,
@@ -27,7 +27,7 @@ export const Input: React.FC<{ channelId: string | null }> = ({ channelId }) => 
     return (
         <InputContainer>
             <form>
-                <input value={input} onChange={e => setInput(e.target.value)} placeholder={`Message #ROOM`} type="text" />
+                <input value={input} onChange={e => setInput(e.target.value)} placeholder={`Message #${roomName}`} type="text" />
                 <Button hidden type='submit' onClick={sendMessage} />
             </form>
         </InputContainer>

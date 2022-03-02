@@ -29,7 +29,7 @@ const Chat: React.FC = () => {
         <Messages roomId={room.roomId} />
 
         <Input
-          channelId={room.roomId}
+          room={room}
         />
       </>
     </ChatContainer>
