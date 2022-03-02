@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import styled from 'styled-components';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import { Input } from './Input';
 import { useSelector } from 'react-redux';
+
+import { Input } from './Input';
 import { selectRoom } from '../../features/appSlice';
 import Messages from './Messages';
 

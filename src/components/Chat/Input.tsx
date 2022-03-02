@@ -2,6 +2,7 @@ import { Button } from '@material-ui/core';
 import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore';
 import React, { useState } from 'react'
 import styled from 'styled-components';
+
 import { db } from '../../firebase';
 
 interface IInputProps {
