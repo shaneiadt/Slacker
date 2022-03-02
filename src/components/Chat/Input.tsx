@@ -10,7 +10,7 @@ export const Input: React.FC<{ room: { roomId: string | null; roomName: string |
     const sendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!roomId) return;
+        if (!roomId || !roomName) return;
 
         const docref = doc(db, 'rooms', roomId);
         const colref = collection(docref, 'messages');
