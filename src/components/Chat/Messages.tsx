@@ -7,9 +7,7 @@ import { app } from '../../firebase';
 const Messages: React.FC<{ roomId: string, chatBottomRef: React.RefObject<HTMLDivElement>; }> = ({ roomId, chatBottomRef }) => {
     const [messages] = useCollection(query(collection(getFirestore(app), 'rooms', roomId, 'messages'), orderBy('timestamp', 'asc')));
 
-    useEffect(() => {
-        chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    });
+    useEffect(() => chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' }));
 
     const formatDate = (timestamp: { toDate: () => Date }) => {
         if (!timestamp) return '';
