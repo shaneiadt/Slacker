@@ -1,17 +1,15 @@
 import { collection, getFirestore, orderBy, query } from 'firebase/firestore';
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useCollection } from 'react-firebase-hooks/firestore';
 import styled from 'styled-components';
 import { app } from '../../firebase';
 
-const Messages: React.FC<{ roomId: string }> = ({ roomId }) => {
+const Messages: React.FC<{ roomId: string, chatBottomRef: React.RefObject<HTMLDivElement>; }> = ({ roomId, chatBottomRef }) => {
     const [messages] = useCollection(query(collection(getFirestore(app), 'rooms', roomId, 'messages'), orderBy('timestamp', 'asc')));
-    const chatBottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
-
+    });
 
     const formatDate = (timestamp: { toDate: () => Date }) => {
         if (!timestamp) return '';
@@ -33,7 +31,6 @@ const Messages: React.FC<{ roomId: string }> = ({ roomId }) => {
                     </MessageInfo>
                 </MessageContainer>
             ))}
-            <ChatBottom ref={chatBottomRef} />
         </MessagesContainer>
     )
 }
@@ -62,8 +59,4 @@ const MessageInfo = styled.div`
         margin-left: 4px;
         font-size: 10px;
     }
-`;
-
-const ChatBottom = styled.div`
-    padding: 50px;
 `;

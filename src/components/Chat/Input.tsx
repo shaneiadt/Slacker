@@ -4,7 +4,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { db } from '../../firebase';
 
-export const Input: React.FC<{ room: { roomId: string | null; roomName: string | null } }> = ({ room: { roomId, roomName } }) => {
+interface IInputProps {
+    room: {
+        roomId: string | null;
+        roomName: string | null;
+    };
+}
+
+export const Input: React.FC<IInputProps> = ({ room: { roomId, roomName } }) => {
     const [input, setInput] = useState('');
 
     const sendMessage = async (e: React.FormEvent) => {

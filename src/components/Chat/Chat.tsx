@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
@@ -9,6 +9,7 @@ import Messages from './Messages';
 
 const Chat: React.FC = () => {
   const room = useSelector(selectRoom);
+  const chatBottomRef = useRef<HTMLDivElement>(null);
 
   return !room.roomId ? null : (
     <ChatContainer>
@@ -26,7 +27,8 @@ const Chat: React.FC = () => {
           </HeaderRight>
         </Header>
 
-        <Messages roomId={room.roomId} />
+        <Messages chatBottomRef={chatBottomRef} roomId={room.roomId} />
+        <ChatBottom ref={chatBottomRef} />
 
         <Input
           room={room}
@@ -79,4 +81,8 @@ const HeaderRight = styled.div`
     margin-right: 5px !important;
     font-size: 16px;
   }
+`;
+
+const ChatBottom = styled.div`
+    padding: 50px;
 `;
