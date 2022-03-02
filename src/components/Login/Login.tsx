@@ -1,11 +1,20 @@
+import { Button } from '@material-ui/core';
 import React from 'react'
 import styled from 'styled-components'
 
 export const Login = () => {
+    const signIn = (e: React.FormEvent) => {
+        e.preventDefault();
+    }
+
     return (
         <LoginContainer>
             <LoginInnerContainer>
                 <img src='https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg' />
+                <h1>Sign in to Slacker</h1>
+                <Button type='submit' onClick={signIn}>
+                    Sign in with Google
+                </Button>
             </LoginInnerContainer>
         </LoginContainer>
     )
@@ -29,5 +38,17 @@ const LoginInnerContainer = styled.div`
         object-fit: contain;
         height: 75px;
         margin-bottom: 40px;
+    }
+
+    > button {
+        margin-top: 50px;
+        padding: 10px !important;
+        text-transform: inherit !important;
+        background-color: #0a8d48 !important;
+        color: #fff;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 `;
