@@ -12,9 +12,9 @@ export const Input: React.FC<{ channelId: string | null }> = ({ channelId }) => 
 
         if (!channelId) return;
 
-        const docref = doc(collection(db, 'rooms'));
-        const colref = doc(docref, 'messages', channelId);
-        await setDoc(colref, {
+        const docref = doc(db, 'rooms', channelId);
+        const colref = collection(docref, 'messages');
+        await addDoc(colref, {
             message: input,
             timestamp: serverTimestamp(),
             user: 'ShaneO',
