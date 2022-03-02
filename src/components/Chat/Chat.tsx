@@ -5,17 +5,12 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { Input } from './Input';
 import { useSelector } from 'react-redux';
 import { selectRoomId } from '../../features/appSlice';
-import { useCollection } from 'react-firebase-hooks/firestore';
-import { collection, getFirestore } from 'firebase/firestore';
-import { app } from '../../firebase';
+import Messages from './Messages';
 
-interface IChatProps { }
-
-const Chat: React.FC<IChatProps> = () => {
+const Chat: React.FC = () => {
   const roomId = useSelector(selectRoomId);
-  const [roomDetails] = useCollection(collection(getFirestore(app), `rooms/${roomId}`));
 
-  return (
+  return !roomId ? null : (
     <ChatContainer>
       <>
         <Header>
@@ -31,7 +26,7 @@ const Chat: React.FC<IChatProps> = () => {
           </HeaderRight>
         </Header>
 
-        <ChatMessages />
+        <Messages roomId={roomId} />
 
         <Input
           channelId={roomId}
@@ -84,7 +79,4 @@ const HeaderRight = styled.div`
     margin-right: 5px !important;
     font-size: 16px;
   }
-`;
-
-const ChatMessages = styled.div`
 `;
